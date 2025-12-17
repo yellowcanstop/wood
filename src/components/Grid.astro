@@ -1,0 +1,22 @@
+---
+import GridCard from './GridCard.astro';
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  entries: CollectionEntry<"blog">[];
+}
+
+const { entries } = Astro.props;
+const grid = "entries";
+---
+
+<section
+  class="relative overflow-hidden grid grid-cols-3 gap-1 my-4 mb-40"
+  data-grid={grid}
+>
+  {entries.map((entry) =>
+    <GridCard 
+      entry={entry} 
+    />
+  )}
+</section>

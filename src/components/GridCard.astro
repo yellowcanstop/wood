@@ -1,0 +1,30 @@
+---
+import Link from '@/components/Link.astro';
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  entry: CollectionEntry<"blog">;
+}
+
+const { entry } = Astro.props;
+---
+
+<div>
+  <Link
+    href={`${import.meta.env.BASE_URL}/${entry.collection}/${entry.id}`}
+    class="block"
+  >
+    { 
+      entry.data.image && (
+        <div class="sm:max-w-3xs sm:shrink-0 overflow-hidden aspect-square">
+          <Image
+            src={entry.data.image}
+            alt={entry.data.imageAlt ?? entry.data.title}
+            class="w-full h-full object-cover"
+          />
+        </div>
+      )
+    }
+  </Link>
+</div>

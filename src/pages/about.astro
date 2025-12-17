@@ -1,0 +1,28 @@
+---
+import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import Link from '@/components/Link.astro'
+import PageHead from '@/components/PageHead.astro'
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout class="max-w-3xl">
+  <PageHead slot="head" title="About Me" />
+  <Breadcrumbs items={[{ label: 'About Me', icon: 'lucide:info' }]} />
+
+  <section>
+    <div class="min-w-full">
+      <div class="prose mb-8">
+        <h3>Hi there!</h3>
+        <p class="mt-0">
+          This website showcases my portfolio.
+        </p>
+        <p>
+          To learn more about how I crafted each of my pieces, start reading 
+          <Link
+            href={`${import.meta.env.BASE_URL}/blog/`}
+            underline>my write-ups</Link>.
+        </p>
+      </div>    
+    </div>
+  </section>
+</Layout>
